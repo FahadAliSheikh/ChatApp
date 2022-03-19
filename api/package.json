@@ -1,0 +1,19 @@
+{
+  "name": "fahad-chat-app",
+  "version": "1.0.0",
+  "description": "fahad's chat app assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FahadAliSheikh/ChatApp.git"
+  },
+  "author": "fahad ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FahadAliSheikh/ChatApp/issues"
+  },
+  "homepage": "https://github.com/FahadAliSheikh/ChatApp#readme"
+}
