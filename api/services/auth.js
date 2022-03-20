@@ -94,7 +94,9 @@ async function signin(payload){
 
   async function getUsers(payload){
   const userId = payload.userId;
-    const users = userId ? await repos.auth.findUserById(userId) : await repos.auth.findAll();
+  const username = payload.username;
+  console.log(payload);
+    const users = userId ? await repos.auth.findUserById(userId) : username ? await repos.auth.findUserByUserName(username) : await repos.auth.findAll();
     
     const returnData = {
       status: 200,

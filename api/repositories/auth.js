@@ -28,7 +28,8 @@ async function findUserByEmail(email){
 }
 
 async function findUserByUserName(username){
-  console.log('inside repo');
+
+  console.log('inside find by username repo');
   // const newUser = new User(payload);
   const foundUser = await User.findOne({username:username});
   return foundUser;
@@ -36,15 +37,7 @@ async function findUserByUserName(username){
 }
 
 async function findUserById(userId){
-  console.log('inside repo');
-  // const newUser = new User(payload);
-  const foundUser = await User.findOne({_id:userId});
-  return foundUser;
-
-}
-
-async function findUserById(userId){
-  console.log('inside repo');
+  console.log('inside ID repo');
   // const newUser = new User(payload);
   const foundUser = await User.findOne({_id:userId});
   return foundUser;
@@ -54,7 +47,7 @@ async function findUserById(userId){
 
 
 async function findAll(){
-  console.log('inside repo');
+  console.log('inside all repo');
   // const newUser = new User(payload);
   const foundUser = await User.find();
   return foundUser;

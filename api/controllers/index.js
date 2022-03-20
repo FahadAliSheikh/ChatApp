@@ -1,3 +1,7 @@
 module.exports = {
-  auth: require('./auth')
+  auth: require('./auth'),
+  conversation: require('./conversation'),
+  message: require('./message')
+
+
 }
