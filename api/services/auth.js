@@ -57,11 +57,14 @@ async function signup(payload){
 
 async function signin(payload){
 
-  if(!payload.email || !payload.password){
+  if(!payload.username || !payload.password){
     throw new AppError('username and password are required!', 400)
   }
+
+  const foundUserByEmail = await repos.auth.findUserByUserName(payload.username);
+
   // try to find user
-  const foundUserByEmail = await repos.auth.findUserByEmail(payload.email);
+  // const foundUserByEmail = await repos.auth.findUserByEmail(payload.email);
   if(!foundUserByEmail)
   throw new AppError('Sorry, user not found!', 404);
 
