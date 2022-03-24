@@ -3,7 +3,8 @@ const Message = require('../models/Message');
 
 module.exports = {
   saveMessage,
-  getUserMessage
+  getUserMessage,
+  getConverMessages
 }
 
 async function saveMessage(payload){
@@ -17,6 +18,15 @@ async function getUserMessage(payload){
   // const newUser = new User(payload);
   console.log(payload);
   const foundMessages = await Message.find({conversationId : payload});
+  console.log(foundMessages);
+  return foundMessages;
+}
+
+
+async function getConverMessages(payload){
+  // const newUser = new User(payload);
+  console.log(payload);
+  const foundMessages = await Message.find({members: {$all:[payload.senderId, payload.receiverId]}});
   console.log(foundMessages);
   return foundMessages;
 }

@@ -5,21 +5,24 @@ const AppError = require('../error/app-error');
 
 module.exports = {
   saveMessage,
-  getUserMessage
+  getUserMessage,
+  getConverMessages
 
 };
 
 
 async function saveMessage(payload){
+  console.log('----inside service-----')
   console.log(payload);
-  if(!payload.sender || !payload.conversationId || !payload.text){
+  if(!payload.senderId || !payload.receiverId || !payload.text){
     // console.log('usename, email and password are required');
     // req.status(400).json({ message: "usename, email and password are required" });
-    throw new AppError('conversationId, sender and text are required!', 400);
+    throw new AppError('senderId, receiverId and text are required!', 400);
   }
   const messageData = {  
-    conversationId : payload.conversationId,
-    sender : payload.sender,
+    senderId : payload.senderId,
+    receiverId : payload.receiverId,
+    members: [payload.senderId,payload.receiverId],
     text : payload.text,
 
   }
@@ -46,6 +49,28 @@ async function getUserMessage(payload){
     throw new AppError('conversationId required!', 400);
   }
   const messageData = await  repos.message.getUserMessage(payload.conversationId);
+
+  if(messageData){
+    const returnData = {
+      status: 200,
+      message: "Messages found!",
+      data: {messageData}
+    }
+    return returnData;
+  }else{
+   throw new AppError('Sorry, something went wrong!', 503);
+  }
+}
+
+
+async function getConverMessages(payload){
+  console.log(payload);
+  if(!payload.senderId || !payload.receiverId){
+    // console.log('usename, email and password are required');
+    // req.status(400).json({ message: "usename, email and password are required" });
+    throw new AppError('senderId and receiverId required!', 400);
+  }
+  const messageData = await  repos.message.getConverMessages(payload);
 
   if(messageData){
     const returnData = {

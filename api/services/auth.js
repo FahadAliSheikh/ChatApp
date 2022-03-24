@@ -84,7 +84,8 @@ async function signin(payload){
     status: 200,
     message: "You have successfully signedIn!",
     data: {
-      token : token
+      token : token,
+      user:foundUserByEmail
     }
   }
   return returnData;
