@@ -14,7 +14,7 @@
 <div class="content" role="main">
 
   <div class="container">
-    <h3 class=" text-center">Stream Messaging</h3>
+    <h3 class=" text-center">Messaging</h3>
     <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">
@@ -37,13 +37,13 @@
             </div>
 
             <div class="channels" *ngFor="let user of usersList">
-              <div class="chat_list">
+              <div [class.selected]="user === selectedUser" class="chat_list">
                 <div class="chat_people">
-                  <div class="chat_ib" (click)="getOldConversation(user)">
+                  <div  class="chat_ib" (click)="getOldConversation(user)">
                     <h5>
                       {{ user.username }}
                     </h5>
-                    <p *ngIf="user.socketId">
+                    <p *ngIf="user.socketId" style = "color: #42f569;">
                       Online
                     </p>
                     <p>

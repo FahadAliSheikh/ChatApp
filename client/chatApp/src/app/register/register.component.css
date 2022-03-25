@@ -30,3 +30,6 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+.btn-success {
+  margin-left: 25%;
+}

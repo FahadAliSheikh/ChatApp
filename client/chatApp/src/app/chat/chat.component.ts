@@ -18,7 +18,8 @@ export class ChatComponent implements OnInit {
   public senderId : string = '';
   public receiverId : string = '';
   public onlineUser : any;
-
+  public selectedUser: any;
+  
   newMessage: string = '';
   messages: string[] = [];
 
@@ -61,6 +62,8 @@ export class ChatComponent implements OnInit {
 
   // Get old conversation of users
  async getOldConversation (user:any){
+  this.selectedUser = user;
+
   this.senderId = this.loggedInUser._id;
   this.receiverId = user._id;
    await this.chatService.getOldConversation(this.senderId, this.receiverId).subscribe({

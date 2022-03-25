@@ -104,6 +104,7 @@ img {
 .chat_list {
 	border-bottom: 1px solid #c4c4c4;
 	margin: 0;
+	cursor: pointer;
 	padding: 18px 16px 10px;
 }
 
@@ -156,7 +157,7 @@ img {
 }
 
 .sent_msg p {
-	background: #05728f none repeat scroll 0 0;
+	background: #86bce3 none repeat scroll 0 0;
 	border-radius: 3px;
 	font-size: 14px;
 	margin: 0;
@@ -214,4 +215,19 @@ img {
 
 .message {
 	list-style-type: none;
+}
+
+.selected {
+  background-color: #86bce3;
+  color: white;
+}
+
+.selected:hover {
+  background-color: #739fbf;
+	cursor: pointer;
+  color: white;
+}
+
+.selected h5 {
+  color: white;
 }
