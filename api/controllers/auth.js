@@ -3,14 +3,10 @@ const services = require('../services');
 module.exports = {
   signup,
   signin,
-  getUsers,
-  // logout,
-  // getToken
+  getUsers
 };
 
 function signup(req, res, next){
-  console.log('Inside controller');
-  console.log(req.body);
   // res.send( 'working fine!');
   let payload = {
     username: req.body.username,
@@ -25,8 +21,6 @@ function signup(req, res, next){
 }
 
 function signin(req, res, next){
-  console.log('Inside signin controller');
-  console.log(req.body);
   // res.send( 'working fine!');
   let payload = {
     username: req.body.username,

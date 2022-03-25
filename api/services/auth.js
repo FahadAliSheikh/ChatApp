@@ -6,14 +6,10 @@ module.exports = {
   signup,
   signin,
   getUsers,
-  // logout,
-  // getToken
 };
 
 async function signup(payload){
   // Manual validation, automatic validator can be used here for better usage
-  console.log('inside service');
-  console.log(payload);
   if(!payload.username || !payload.email || !payload.password){
     // console.log('usename, email and password are required');
     // req.status(400).json({ message: "usename, email and password are required" });
@@ -42,7 +38,6 @@ async function signup(payload){
     password: hashedPassword,
   };
  const createdUser = await  repos.auth.create(newUser);
- console.log(createdUser);
  if(createdUser){
    const returnData = {
      status: 200,
@@ -70,7 +65,6 @@ async function signin(payload){
 
   // try to validate user
   const validPassword = await bcrypt.compare(payload.password, foundUserByEmail.password);
-  console.log(validPassword);
   if(!validPassword)
   throw new AppError('Invalid email or password!', 400);
 
@@ -96,7 +90,6 @@ async function signin(payload){
   async function getUsers(payload){
   const userId = payload.userId;
   const username = payload.username;
-  console.log(payload);
     const users = userId ? await repos.auth.findUserById(userId) : username ? await repos.auth.findUserByUserName(username) : await repos.auth.findAll();
     
     const returnData = {
