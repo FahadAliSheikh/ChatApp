@@ -20,8 +20,5 @@ One on One chat application with socket.io
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* How to run start using application
+* http://localhost:4200/
