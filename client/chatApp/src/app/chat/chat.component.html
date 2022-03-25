@@ -59,7 +59,11 @@
             </div>
           </div>
         </div>
-        <div class="mesgs">
+        <div *ngIf="!userSelected" class="no_chat">
+        <h2> Please select a user and start chatting!  </h2>
+        </div>
+
+        <div *ngIf="userSelected" class="mesgs">
           <div class="msg_history">
             <li class="message" *ngFor="let message of messageList">
               <!-- {{message.text}} -->
