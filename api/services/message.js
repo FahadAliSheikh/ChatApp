@@ -11,9 +11,10 @@ module.exports = {
 
 
 async function saveMessage(payload){
-  if(!payload.senderId || !payload.receiverId || !payload.text){
-    throw new AppError('senderId, receiverId and text are required!', 400);
-  }
+  // if(!payload.senderId || !payload.receiverId || !payload.text){
+  //   throw new AppError('senderId, receiverId and text are required!', 400);
+  // }
+  console.log('inside save message');
   const messageData = {  
     senderId : payload.senderId,
     receiverId : payload.receiverId,
@@ -37,9 +38,9 @@ async function saveMessage(payload){
 
 
 async function getConverMessages(payload){
-  if(!payload.senderId || !payload.receiverId){
-    throw new AppError('senderId and receiverId required!', 400);
-  }
+  // if(!payload.senderId || !payload.receiverId){
+  //   throw new AppError('senderId and receiverId required!', 400);
+  // }
   const messageData = await  repos.message.getConverMessages(payload);
 
   if(messageData){

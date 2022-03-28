@@ -10,11 +10,11 @@ module.exports = {
 
 async function signup(payload){
   // Manual validation, automatic validator can be used here for better usage
-  if(!payload.username || !payload.email || !payload.password){
-    // console.log('usename, email and password are required');
-    // req.status(400).json({ message: "usename, email and password are required" });
-    throw new AppError('usename, email and password are required!', 400);
-  }
+  // if(!payload.username || !payload.email || !payload.password){
+  //   // console.log('usename, email and password are required');
+  //   // req.status(400).json({ message: "usename, email and password are required" });
+  //   throw new AppError('usename, email and password are required!', 400);
+  // }
   // check if user already exists
 
   const foundUserByEmail = await repos.auth.findUserByEmail(payload.email);
@@ -52,9 +52,9 @@ async function signup(payload){
 
 async function signin(payload){
 
-  if(!payload.username || !payload.password){
-    throw new AppError('username and password are required!', 400)
-  }
+  // if(!payload.username || !payload.password){
+  //   throw new AppError('username and password are required!', 400)
+  // }
 
   const foundUserByEmail = await repos.auth.findUserByUserName(payload.username);
 

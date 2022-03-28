@@ -33,12 +33,12 @@ routes(app);
 const errorResponder = (err, req, res, next) => {
   console.log('inside error handler');
   console.log(err);
-  console.log(err.name);
-  console.log(err.message);
-  console.log(err.status);
+  console.log('name',err.name);
+  console.log('message',err.message);
+  console.log('status',err.status);
 
   res.header("Content-Type", 'application/json')
-  res.status(err.status || 500).send({status:err.status, message:err.message}) // pretty print
+  res.status(err.status || 500).send({errors:[{message :err.message}]}) // pretty print
 }
 app.use(errorResponder)
 

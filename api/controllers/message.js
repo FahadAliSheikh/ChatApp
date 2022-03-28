@@ -9,10 +9,8 @@ module.exports = {
 function saveMessage(req, res, next){
 
   let payload = {
-    conversationId: req.body.conversationId,
     senderId: req.body.senderId,
     receiverId: req.body.receiverId,
-    sender: req.body.sender,
     text:req.body.text
     };
   return services.message.saveMessage(payload)

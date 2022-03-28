@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       error: err => {
-        this.errorMessage = err.error.message;
+        console.log('err', err.error.errors[0].message);
+
+        this.errorMessage = err.error.errors[0].message;
         this.isLoginFailed = true;
       }
     });
